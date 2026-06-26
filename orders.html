@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders</title>
+  <style>
+    :root {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #1f2937;
+      background: #eef4f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #eef4f6;
+      color: #1f2937;
+    }
+
+    a {
+      color: #334155;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #1f2937;
+    }
+
+    .page-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #d8dee3;
+      box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .page-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #f4f5f7;
+      border: 1px solid #d8dee3;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .page-nav a:hover {
+      background: #e8edf0;
+      color: #1f2937;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 24px auto 40px;
+      padding: 0 20px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.05;
+      color: #111827;
+    }
+
+    .description {
+      margin: 0 0 24px;
+      color: #52606d;
+      line-height: 1.7;
+    }
+
+    #orders {
+      display: grid;
+      gap: 18px;
+    }
+
+    .order-card {
+      padding: 22px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #d8dee3;
+      box-shadow: 0 12px 24px rgba(31, 41, 55, 0.06);
+      color: #1f2937;
+    }
+
+    .order-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+
+    .order-card ul {
+      margin: 0 0 12px;
+      padding-left: 18px;
+      color: #52606d;
+    }
+
+    .order-card p {
+      margin: 6px 0;
+      color: #52606d;
+      line-height: 1.6;
+    }
+
+    .empty-state {
+      padding: 28px 24px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #d8dee3;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(31, 41, 55, 0.06);
+      color: #52606d;
+    }
+
+    @media (max-width: 720px) {
+      .page-header {
+        padding: 16px 18px;
+      }
+
+      main {
+        padding: 0 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a class="brand" href="index.html">My Store</a>
+    <nav class="page-nav">
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>My Orders</h1>
+    <p class="description">Your completed orders appear below. Keep this list clean and easy to scan.</p>
+
+    <div id="orders"></div>
+  </main>
+
+  <script type="module" src="./js/my-orders.js"></script>
+</body>
+</html>

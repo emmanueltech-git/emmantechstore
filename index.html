@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Store</title>
+  <style>
+    :root {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #1f2937;
+      background: #eef4f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #eef4f6;
+      color: #1f2937;
+    }
+
+    a {
+      color: #334155;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #1f2937;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #d8dee3;
+      box-shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .brand-tag {
+      font-size: 0.92rem;
+      color: #526170;
+    }
+
+    .page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .page-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #f4f5f7;
+      border: 1px solid #d8dee3;
+      color: #334155;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .page-nav a:hover {
+      background: #e8ecf0;
+      color: #1f2937;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 28px auto 36px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #d8dee3;
+      box-shadow: 0 16px 32px rgba(31, 41, 55, 0.06);
+      min-height: 320px;
+    }
+
+    .hero-copy {
+      padding: 36px 36px 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      color: #111827;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 560px;
+      color: #52606d;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .hero-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #f4f5f7;
+      border: 1px solid #d8dee3;
+      color: #334155;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero-actions a:hover {
+      transform: translateY(-1px);
+      background: #e8edf1;
+    }
+
+    .hero-actions img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.88) contrast(0.96);
+      display: block;
+      background: #e6edf2;
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid #d8dee3;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(31, 41, 55, 0.06);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 18px;
+      background: #f4f6f8;
+    }
+
+    .product-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #111827;
+    }
+
+    .product-card p {
+      margin: 0;
+      color: #52606d;
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .product-card p strong {
+      color: #111827;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .quantity-field {
+      width: 86px;
+      padding: 10px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      background: #f4f6f8;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+
+    .add-to-cart-btn {
+      flex: 1;
+      min-width: 130px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 999px;
+      background: #334155;
+      color: #ffffff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, filter 0.18s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        padding: 16px 18px;
+      }
+
+      .hero-copy {
+        padding: 24px 22px;
+      }
+
+      .product-grid {
+        padding: 0 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-wrap">
+      <a class="brand" href="index.html">My Store</a>
+      <span class="brand-tag">Everyday shopping, made simple.</span>
+    </div>
+    <nav class="page-nav">
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="orders.html">Orders</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>My Store</h1>
+      <p>Browse quality products with a clean layout and easy navigation. Simple, calm, and easy to use for every shopper.</p>
+      <div class="hero-actions">
+        <a href="cart.html">
+          <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Cart icon">
+          View Cart
+        </a>
+        <a href="orders.html">My Orders</a>
+      </div>
+    </div>
+    <img class="hero-image" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80" alt="Store hero image">
+  </section>
+
+  <div id="products" class="product-grid"></div>
+
+  <script type="module" src="./js/store.js"></script>
+</body>
+</html>
